@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skydoves.transformationlayout.TransformationLayout
+    android:id="@+id/transformation_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:elevation="3dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="12dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@color/colorGradientStart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/playlist_item_content_description" />
+
+    <TextView
+        android:id="@+id/playlist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Playlist name"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textColor="@color/colorGradientEnd"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_play_circle"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/play_playlist_button_content_description" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</com.skydoves.transformationlayout.TransformationLayout>

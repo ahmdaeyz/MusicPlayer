@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skydoves.transformationlayout.TransformationLayout
+    android:id="@+id/transformation_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/player_background"
+    tools:context=".ui.player.embeddedplayer.PlayerFragment">
+
+    <ImageView
+        android:id="@+id/song_cover"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        tools:background="@color/colorGradientCenter"
+        android:layout_margin="16dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/song_art_content_description" />
+
+    <TextView
+        android:id="@+id/song_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Starboy feat(Daft Punk)"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textColor="@color/colorGradientEnd"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/song_cover"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/song_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="The weeknd"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:textColor="@color/colorGradientCenter"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/song_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/song_cover"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:background="@drawable/ic_play_circle_outline_56"
+        android:layout_margin="16dp"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/play_pause_button_content_description" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</com.skydoves.transformationlayout.TransformationLayout>
