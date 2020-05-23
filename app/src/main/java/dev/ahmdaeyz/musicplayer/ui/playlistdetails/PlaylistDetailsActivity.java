@@ -1,11 +1,10 @@
 package dev.ahmdaeyz.musicplayer.ui.playlistdetails;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.skydoves.transformationlayout.TransformationAppCompatActivity;
 import com.xwray.groupie.GroupAdapter;
@@ -15,7 +14,6 @@ import org.parceler.Parcels;
 import dev.ahmdaeyz.musicplayer.R;
 import dev.ahmdaeyz.musicplayer.databinding.ActivityPlaylistDetailsBinding;
 import dev.ahmdaeyz.musicplayer.model.Playlist;
-import dev.ahmdaeyz.musicplayer.ui.player.PlayerActivityViewModel;
 import dev.ahmdaeyz.musicplayer.ui.player.embeddedplayer.PlayerFragment;
 
 import static dev.ahmdaeyz.musicplayer.ui.musiclibrary.playlists.PlaylistsFragment.PLAYLIST_ARG;
@@ -30,6 +28,9 @@ public class PlaylistDetailsActivity extends TransformationAppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPlaylistDetailsBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null){
             playlist = Parcels.unwrap(bundle.getParcelable(PLAYLIST_ARG));
@@ -49,4 +50,9 @@ public class PlaylistDetailsActivity extends TransformationAppCompatActivity {
                 .commit();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }
