@@ -1,11 +1,11 @@
 package dev.ahmdaeyz.musicplayer.ui.search;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 
 import com.jakewharton.rxbinding3.widget.RxTextView;
 import com.xwray.groupie.GroupAdapter;
@@ -32,6 +32,9 @@ public class SearchLibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySearchLibraryBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         SongsProvider provider = new  InAppSongsProvider();
         SearchLibraryViewModelFactory factory = new SearchLibraryViewModelFactory(provider);
         viewModel = new ViewModelProvider(this,factory).get(SearchLibraryViewModel.class);
@@ -49,13 +52,26 @@ public class SearchLibraryActivity extends AppCompatActivity {
                     ).toObservable();
                 }).observeOn(AndroidSchedulers.mainThread())
                 .subscribe((list)->{
+                    binding.searchInfo.setVisibility(View.GONE);
                     List<SongItem> songItems = list.stream()
                             .map(Song.class::cast)
                             .map((SongItem::new))
                             .collect(Collectors.toList());
                     adapter.clear();
                     adapter.addAll(songItems);
+                    if (list.size() == 0) {
+                        binding.searchInfo.setVisibility(View.VISIBLE);
+                        binding.searchInfo.setText(getString(R.string.no_such_song));
+                    } else {
+                        binding.searchInfo.setVisibility(View.GONE);
+                    }
                 })
         );
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

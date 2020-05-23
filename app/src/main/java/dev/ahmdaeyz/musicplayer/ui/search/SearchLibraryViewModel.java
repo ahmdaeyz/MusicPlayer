@@ -20,8 +20,7 @@ public class SearchLibraryViewModel extends ViewModel {
         return provider.getSongs()
                 .toObservable()
                 .flatMap(Observable::fromIterable)
-                .filter((song -> song.getTitle().toLowerCase().contains(searchKeyword)
-                        || song.getArtist().toLowerCase().contains(searchKeyword)))
+                .filter((song -> song.getTitle().toLowerCase().contains(searchKeyword)))
                 .toList();
     }
 

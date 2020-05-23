@@ -15,4 +15,6 @@
     <string name="search_box_hint">Search for a song…</string>
     <string name="skip_forward_content_description">Skip forward</string>
     <string name="search">Search</string>
+    <string name="where_is_that_song">Where is that song?</string>
+    <string name="no_such_song">No such song :(</string>
 </resources>
